@@ -27,10 +27,15 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # Serve uploaded images
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
+origins = [
+    "https://milkteafrontend.onrender.com",  # your frontend URL
+    "http://localhost:5173",                 # for local development (Vite default)
+]
+
 # CORS Settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
