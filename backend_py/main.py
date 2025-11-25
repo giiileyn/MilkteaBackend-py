@@ -55,14 +55,16 @@ from app.crud import category as category_crud
 from app.routes import countProduct as countProduct_router
 
 
-# Register routers
-app.include_router(products_router, prefix="/products", tags=["Products"])
-app.include_router(category_router, prefix="/categories", tags=["Categories"])
-app.include_router(orders_router, prefix="/orders", tags=["Orders"])
-app.include_router(topping.router, prefix="/toppings", tags=["Toppings"])
-app.include_router(stock_router.router, prefix="/stock", tags=["Stock"])
-app.include_router(user_router.router, prefix="/users", tags=["Users"])
-app.include_router(countProduct_router.router, prefix="/count", tags=["Count"])
+api_prefix = "/api"
+
+app.include_router(products_router, prefix=f"{api_prefix}/products", tags=["Products"])
+app.include_router(category_router, prefix=f"{api_prefix}/categories", tags=["Categories"])
+app.include_router(orders_router, prefix=f"{api_prefix}/orders", tags=["Orders"])
+app.include_router(topping.router, prefix=f"{api_prefix}/toppings", tags=["Toppings"])
+app.include_router(stock_router.router, prefix=f"{api_prefix}/stock", tags=["Stock"])
+app.include_router(user_router.router, prefix=f"{api_prefix}/users", tags=["Users"])
+app.include_router(countProduct_router.router, prefix=f"{api_prefix}/count", tags=["Count"])
+
 
 
 
