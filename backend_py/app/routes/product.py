@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from app.crud import product as product_crud
 
-router = APIRouter()
+
+router = APIRouter(prefix="/api/products", tags=["products"])
 
 # GET ALL PRODUCTS
 @router.get("/")
