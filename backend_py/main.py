@@ -30,13 +30,16 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 
 # CORS Settings
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://milkteafrontend.onrender.com"],
+    allow_origins=["*"],  # temporarily allow all origins
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
